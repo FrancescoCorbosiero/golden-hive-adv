@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 export function Button({
   children,
   variant = 'primary',
-  size = 'default',
+  size = 'md',
   magnetic = false,
   className,
   ...props
@@ -34,26 +34,29 @@ export function Button({
   };
 
   const variants = {
-    primary: 'bg-accent-gold text-black font-semibold hover:bg-accent-gold-light hover:shadow-[0_0_40px_rgba(212,160,18,0.4)]',
-    secondary: 'bg-transparent text-white border border-accent-gold/30 hover:bg-accent-gold/10 hover:border-accent-gold/50',
+    primary:
+      'bg-accent-gold text-black hover:bg-accent-gold-light hover:shadow-[0_0_40px_rgba(212,160,18,0.4)]',
+    secondary:
+      'bg-transparent text-white border border-accent-gold/30 hover:bg-accent-gold/10 hover:border-accent-gold/50',
     ghost: 'bg-transparent text-text-secondary hover:text-white hover:bg-white/5',
   };
 
   const sizes = {
-    small: 'px-5 py-2.5 text-sm',
-    default: 'px-6 py-3 text-base',
-    large: 'px-8 py-4 text-lg',
+    sm: 'px-4 py-2 text-sm font-medium',
+    md: 'px-6 py-3 text-base font-semibold',
+    lg: 'px-8 py-4 text-lg font-semibold',
+    xl: 'px-10 py-5 text-xl font-bold',
   };
 
   return (
     <motion.button
       ref={ref}
       className={clsx(
-        'relative overflow-hidden rounded-full font-medium transition-all duration-200',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary',
-        'active:scale-95',
+        'relative inline-flex items-center justify-center overflow-hidden rounded-full transition-all duration-200',
+        'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-black',
+        'active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed',
         variants[variant],
-        sizes[size],
+        sizes[size] || sizes.md,
         className
       )}
       animate={magnetic ? { x: position.x, y: position.y } : {}}
