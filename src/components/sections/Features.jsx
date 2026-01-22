@@ -2,70 +2,83 @@ import { motion } from 'framer-motion';
 import { Container } from '../ui/Container';
 import { Card } from '../ui/Card';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../animations/ScrollReveal';
+import {
+  ShoppingCart,
+  Palette,
+  Shield,
+  Cloud,
+  Database,
+  RefreshCw,
+  Package,
+  Search,
+  Smartphone,
+  CreditCard,
+  Headphones,
+} from 'lucide-react';
 
 const features = [
   {
-    icon: '🛒',
+    icon: ShoppingCart,
     title: 'Store WooCommerce',
     description: 'Professionale e personalizzato',
     size: 'large',
   },
   {
-    icon: '🎨',
+    icon: Palette,
     title: 'Tema Premium',
     description: 'Ottimizzato per conversioni',
     size: 'medium',
   },
   {
-    icon: '🔒',
+    icon: Shield,
     title: 'SSL e Sicurezza',
     description: 'Certificato incluso',
     size: 'small',
   },
   {
-    icon: '☁️',
+    icon: Cloud,
     title: 'Hosting Gestito',
     description: 'Server veloci e affidabili',
     size: 'medium',
   },
   {
-    icon: '💾',
+    icon: Database,
     title: 'Backup Giornalieri',
     description: 'I tuoi dati sempre al sicuro',
     size: 'small',
   },
   {
-    icon: '🔄',
+    icon: RefreshCw,
     title: 'Aggiornamenti Automatici',
     description: 'WordPress e plugin sempre aggiornati',
     size: 'medium',
   },
   {
-    icon: '📦',
+    icon: Package,
     title: 'Sync Stock',
     description: 'Collegato al tuo feed prodotti',
     size: 'large',
   },
   {
-    icon: '🔍',
+    icon: Search,
     title: 'SEO Base',
     description: 'Configurato per farti trovare',
     size: 'medium',
   },
   {
-    icon: '📱',
+    icon: Smartphone,
     title: 'Mobile Responsive',
     description: 'Perfetto su ogni dispositivo',
     size: 'small',
   },
   {
-    icon: '💳',
+    icon: CreditCard,
     title: 'Pagamenti',
     description: 'Stripe e PayPal integrati',
     size: 'medium',
   },
   {
-    icon: '🎧',
+    icon: Headphones,
     title: 'Supporto Post-Lancio',
     description: 'Non ti lasciamo mai solo',
     size: 'large',
@@ -97,7 +110,7 @@ export function Features() {
         {/* Section header */}
         <ScrollReveal className="text-center mb-16">
           <h2 className="text-fluid-3xl md:text-fluid-4xl font-bold mb-6">
-            Cosa È <span className="text-accent-blue">Incluso</span> In Tutti I Piani
+            Cosa È <span className="text-accent-gold-light">Incluso</span> In Tutti I Piani
           </h2>
           <p className="text-text-secondary text-fluid-lg max-w-2xl mx-auto">
             Ogni piano include tutto ciò di cui hai bisogno per lanciare e gestire il tuo store
@@ -113,6 +126,8 @@ export function Features() {
               large: 'md:col-span-2 lg:col-span-1',
             };
 
+            const IconComponent = feature.icon;
+
             return (
               <StaggerItem key={feature.title}>
                 <motion.div
@@ -122,16 +137,16 @@ export function Features() {
                 >
                   <Card className="p-5 md:p-6 h-full group">
                     {/* Icon */}
-                    <motion.span
-                      className="text-3xl md:text-4xl block mb-3"
+                    <motion.div
+                      className="text-accent-gold mb-3"
                       whileHover={{ scale: 1.2, rotate: [0, -5, 5, 0] }}
                       transition={{ duration: 0.3 }}
                     >
-                      {feature.icon}
-                    </motion.span>
+                      <IconComponent size={32} strokeWidth={1.5} />
+                    </motion.div>
 
                     {/* Title */}
-                    <h3 className="font-semibold text-white mb-1 group-hover:text-accent-lime transition-colors">
+                    <h3 className="font-semibold text-white mb-1 group-hover:text-accent-gold transition-colors">
                       {feature.title}
                     </h3>
 
@@ -142,7 +157,7 @@ export function Features() {
 
                     {/* Hover gradient border effect */}
                     <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-lime/20 via-transparent to-accent-blue/20 blur-sm" />
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-gold/20 via-transparent to-accent-honey/20 blur-sm" />
                     </div>
                   </Card>
                 </motion.div>

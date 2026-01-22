@@ -1,11 +1,18 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Sprout, Rocket, Gem, PartyPopper } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Card } from '../ui/Card';
 import { Slider } from '../ui/Slider';
 import { ScrollReveal } from '../animations/ScrollReveal';
 import { calculateAllPlans, PLANS, getBestValue } from '../../utils/calculatePrice';
 import { formatCurrency } from '../../utils/formatCurrency';
+
+const planIcons = {
+  starter: Sprout,
+  growth: Rocket,
+  pro: Gem,
+};
 
 export function Calculator() {
   const [revenue, setRevenue] = useState(8000);
@@ -31,7 +38,7 @@ export function Calculator() {
         {/* Section header */}
         <ScrollReveal className="text-center mb-12">
           <h2 className="text-fluid-3xl md:text-fluid-4xl font-bold mb-6">
-            Quanto Pagheresti <span className="text-accent-lime">Tu</span>?
+            Quanto Pagheresti <span className="text-accent-gold">Tu</span>?
           </h2>
           <p className="text-text-secondary text-fluid-lg max-w-2xl mx-auto">
             Muovi lo slider per vedere il costo in base al tuo fatturato mensile
@@ -85,6 +92,7 @@ export function Calculator() {
                 const fee = fees[planId];
                 const isBest = bestPlan === planId && revenue > 0;
                 const isAtCap = fee.status === 'max';
+                const IconComponent = planIcons[planId];
 
                 return (
                   <motion.div
@@ -94,7 +102,7 @@ export function Calculator() {
                       relative p-5 rounded-xl border transition-all duration-300
                       ${
                         isBest
-                          ? 'bg-accent-lime/10 border-accent-lime/50'
+                          ? 'bg-accent-gold/10 border-accent-gold/50'
                           : 'bg-white/[0.02] border-white/10'
                       }
                     `}
@@ -106,7 +114,7 @@ export function Calculator() {
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
-                          className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent-lime text-black text-xs font-bold px-3 py-1 rounded-full"
+                          className="absolute -top-3 left-1/2 -translate-x-1/2 bg-accent-gold text-black text-xs font-bold px-3 py-1 rounded-full"
                         >
                           Miglior Valore
                         </motion.div>
@@ -115,7 +123,9 @@ export function Calculator() {
 
                     {/* Plan name */}
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-xl">{plan.emoji}</span>
+                      <div className="w-8 h-8 rounded-lg bg-accent-gold/10 flex items-center justify-center">
+                        <IconComponent className="w-4 h-4 text-accent-gold" />
+                      </div>
                       <span className="font-semibold text-white">{plan.name}</span>
                       <span className="text-text-muted text-sm">
                         ({plan.revenueShareDisplay})
@@ -132,7 +142,7 @@ export function Calculator() {
                       <span
                         className={`
                           text-3xl font-bold
-                          ${isBest ? 'text-accent-lime' : 'text-white'}
+                          ${isBest ? 'text-accent-gold' : 'text-white'}
                         `}
                       >
                         {formatCurrency(fee.amount)}
@@ -159,9 +169,9 @@ export function Calculator() {
                           initial={{ opacity: 0, scale: 0.8 }}
                           animate={{ opacity: 1, scale: 1 }}
                           exit={{ opacity: 0 }}
-                          className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded bg-accent-lime/20 text-accent-lime font-medium"
+                          className="inline-flex items-center gap-1 text-xs px-2 py-1 rounded bg-accent-gold/20 text-accent-gold font-medium"
                         >
-                          <span>🎉</span> CAP raggiunto!
+                          <PartyPopper className="w-3 h-3" /> CAP raggiunto!
                         </motion.span>
                       )}
                     </AnimatePresence>
@@ -184,10 +194,10 @@ export function Calculator() {
               ) : (
                 <p>
                   Con <span className="text-white font-medium">{formatCurrency(revenue)}</span> di fatturato,
-                  il piano <span className="text-accent-lime font-medium">{PLANS[bestPlan].name}</span> ti costa{' '}
+                  il piano <span className="text-accent-gold font-medium">{PLANS[bestPlan].name}</span> ti costa{' '}
                   <span className="text-white font-medium">{formatCurrency(fees[bestPlan].amount)}/mese</span>
                   {fees[bestPlan].status === 'max' && (
-                    <span className="text-accent-lime"> — hai raggiunto il cap!</span>
+                    <span className="text-accent-gold"> — hai raggiunto il cap!</span>
                   )}
                 </p>
               )}

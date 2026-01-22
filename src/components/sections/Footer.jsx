@@ -42,7 +42,7 @@ export function Footer() {
               transition={{ duration: 0.2 }}
             >
               <span className="text-2xl font-bold text-white">
-                Golden<span className="text-accent-lime">Hive</span>
+                Golden Hive <span className="text-accent-gold">Commerce</span>
               </span>
             </motion.div>
             <p className="text-text-secondary text-sm mb-6">
@@ -58,7 +58,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-text-secondary hover:text-accent-lime hover:border-accent-lime/50 transition-all"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-text-secondary hover:text-accent-gold hover:border-accent-gold/50 transition-all"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
                   aria-label={social.label}
@@ -77,7 +77,7 @@ export function Footer() {
                 <li key={link.label}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-text-secondary hover:text-accent-lime transition-colors text-sm"
+                    className="text-text-secondary hover:text-accent-gold transition-colors text-sm"
                   >
                     {link.label}
                   </button>
@@ -94,7 +94,7 @@ export function Footer() {
                 <li key={link.label}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className="text-text-secondary hover:text-accent-lime transition-colors text-sm"
+                    className="text-text-secondary hover:text-accent-gold transition-colors text-sm"
                   >
                     {link.label}
                   </button>
@@ -109,17 +109,17 @@ export function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href="mailto:info@goldenhive.it"
-                  className="flex items-center gap-2 text-text-secondary hover:text-accent-lime transition-colors text-sm"
+                  href="mailto:info@goldenhivecommerce.it"
+                  className="flex items-center gap-2 text-text-secondary hover:text-accent-gold transition-colors text-sm"
                 >
                   <Mail className="w-4 h-4" />
-                  info@goldenhive.it
+                  info@goldenhivecommerce.it
                 </a>
               </li>
               <li>
                 <a
                   href="tel:+39123456789"
-                  className="flex items-center gap-2 text-text-secondary hover:text-accent-lime transition-colors text-sm"
+                  className="flex items-center gap-2 text-text-secondary hover:text-accent-gold transition-colors text-sm"
                 >
                   <Phone className="w-4 h-4" />
                   +39 123 456 789
@@ -161,7 +161,7 @@ export function Footer() {
 
             {/* Copyright */}
             <p className="text-text-muted text-sm">
-              © {new Date().getFullYear()} Golden Hive. Tutti i diritti riservati.
+              © {new Date().getFullYear()} Golden Hive Commerce. Tutti i diritti riservati.
             </p>
           </div>
         </Container>

@@ -8,28 +8,29 @@ export default {
     extend: {
       colors: {
         bg: {
-          primary: '#0a0a0a',
-          secondary: '#111111',
-          tertiary: '#1a1a1a',
-          elevated: '#222222',
+          primary: '#000000',
+          secondary: '#080808',
+          tertiary: '#0f0f0f',
+          elevated: '#161616',
+          card: '#0c0c0c',
         },
         text: {
           primary: '#ffffff',
-          secondary: '#a1a1a1',
-          muted: '#666666',
+          secondary: '#b0b0b0',
+          muted: '#6b6b6b',
         },
         accent: {
-          lime: '#CCFF00',
-          'lime-hover': '#b8e600',
-          'lime-glow': 'rgba(204, 255, 0, 0.3)',
-          coral: '#FF6B6B',
-          blue: '#00D4FF',
-          gold: '#F5A623',
-          purple: '#8B5CF6',
+          gold: '#D4A012',
+          'gold-light': '#F5C518',
+          'gold-dark': '#B8860B',
+          'gold-muted': '#8B7355',
+          honey: '#FFB800',
+          amber: '#FFBF00',
         },
         success: '#22C55E',
         warning: '#F59E0B',
-        error: '#EF4444',
+        error: '#DC2626',
+        info: '#3B82F6',
       },
       fontFamily: {
         display: ['Space Grotesk', 'Arial Black', 'sans-serif'],
@@ -58,9 +59,9 @@ export default {
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'float-delayed': 'float 6s ease-in-out infinite 2s',
-        'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
+        'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
         'gradient': 'gradient 15s ease infinite',
-        'bounce-subtle': 'bounce-subtle 2s ease-in-out infinite',
+        'shimmer': 'shimmer 2s linear infinite',
         'draw-line': 'draw-line 1.5s ease-out forwards',
       },
       keyframes: {
@@ -69,16 +70,16 @@ export default {
           '50%': { transform: 'translateY(-20px) rotate(2deg)' },
         },
         'glow-pulse': {
-          '0%, 100%': { boxShadow: '0 0 20px rgba(204, 255, 0, 0.3)' },
-          '50%': { boxShadow: '0 0 40px rgba(204, 255, 0, 0.5)' },
+          '0%, 100%': { boxShadow: '0 0 20px rgba(212, 160, 18, 0.2)' },
+          '50%': { boxShadow: '0 0 50px rgba(212, 160, 18, 0.4)' },
         },
         gradient: {
           '0%, 100%': { backgroundPosition: '0% 50%' },
           '50%': { backgroundPosition: '100% 50%' },
         },
-        'bounce-subtle': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-10px)' },
+        shimmer: {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
         },
         'draw-line': {
           '0%': { strokeDashoffset: '1000' },
@@ -87,10 +88,10 @@ export default {
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-hero': 'linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f1f0a 100%)',
-        'gradient-card': 'linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
-        'gradient-accent': 'linear-gradient(135deg, #CCFF00 0%, #00D4FF 100%)',
-        'gradient-premium': 'linear-gradient(135deg, #F5A623 0%, #FF6B6B 100%)',
+        'gradient-hero': 'linear-gradient(135deg, #000000 0%, #080808 50%, #0a0a0a 100%)',
+        'gradient-card': 'linear-gradient(135deg, rgba(212, 160, 18, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%)',
+        'gradient-gold': 'linear-gradient(135deg, #D4A012 0%, #F5C518 50%, #D4A012 100%)',
+        'gradient-premium': 'linear-gradient(135deg, #D4A012 0%, #FFB800 100%)',
       },
       backdropBlur: {
         xs: '2px',

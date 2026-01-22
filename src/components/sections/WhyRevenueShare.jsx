@@ -2,27 +2,39 @@ import { motion } from 'framer-motion';
 import { Container } from '../ui/Container';
 import { Card } from '../ui/Card';
 import { ScrollReveal, StaggerContainer, StaggerItem } from '../animations/ScrollReveal';
+import {
+  ShieldCheck,
+  Target,
+  Lock,
+  Settings,
+  TrendingUp,
+  Link2,
+  Star,
+  Gem,
+  User,
+  Users,
+} from 'lucide-react';
 
 const clientBenefits = [
   {
     title: 'Rischio Ridotto',
     description: 'Se vendi poco, paghi poco',
-    icon: '🛡️',
+    icon: ShieldCheck,
   },
   {
     title: 'Allineamento Interessi',
     description: 'Io voglio che tu venda',
-    icon: '🎯',
+    icon: Target,
   },
   {
     title: 'Cap Garantito',
     description: 'Mai sorprese, conosci il massimo',
-    icon: '🔒',
+    icon: Lock,
   },
   {
     title: 'Flessibilità',
     description: 'Si adatta al tuo business',
-    icon: '🔄',
+    icon: Settings,
   },
 ];
 
@@ -30,22 +42,22 @@ const providerBenefits = [
   {
     title: 'Upside Potential',
     description: 'Se hai successo, cresco con te',
-    icon: '📈',
+    icon: TrendingUp,
   },
   {
     title: 'Relazione Duratura',
     description: "Non 'faccio e sparisco'",
-    icon: '🤝',
+    icon: Link2,
   },
   {
     title: 'Incentivo a Fare Bene',
     description: 'Il mio guadagno dipende dalla qualità',
-    icon: '⭐',
+    icon: Star,
   },
   {
     title: 'Clienti Seri',
     description: 'Chi paga revenue share è committed',
-    icon: '💎',
+    icon: Gem,
   },
 ];
 
@@ -61,7 +73,7 @@ export function WhyRevenueShare() {
         className="absolute inset-0"
         style={{
           backgroundImage: `
-            linear-gradient(135deg, rgba(204, 255, 0, 0.03) 0%, transparent 50%, rgba(0, 212, 255, 0.03) 100%)
+            linear-gradient(135deg, rgba(212, 160, 18, 0.03) 0%, transparent 50%, rgba(184, 138, 46, 0.03) 100%)
           `,
         }}
       />
@@ -81,9 +93,11 @@ export function WhyRevenueShare() {
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Client benefits */}
           <ScrollReveal direction="left" delay={0.1}>
-            <Card className="p-6 md:p-8 h-full border-accent-lime/20">
+            <Card className="p-6 md:p-8 h-full border-accent-gold/20">
               <div className="flex items-center gap-3 mb-8">
-                <span className="text-4xl">👤</span>
+                <div className="w-12 h-12 rounded-full bg-accent-gold/10 flex items-center justify-center">
+                  <User className="w-6 h-6 text-accent-gold" />
+                </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">Per Te (Cliente)</h3>
                   <p className="text-text-secondary text-sm">I vantaggi del revenue share</p>
@@ -91,34 +105,41 @@ export function WhyRevenueShare() {
               </div>
 
               <StaggerContainer className="space-y-4">
-                {clientBenefits.map((benefit, index) => (
-                  <StaggerItem key={benefit.title}>
-                    <motion.div
-                      className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.02] hover:bg-accent-lime/[0.05] transition-colors"
-                      whileHover={{ x: 8 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <span className="text-2xl">{benefit.icon}</span>
-                      <div>
-                        <h4 className="font-semibold text-white mb-1">
-                          {benefit.title}
-                        </h4>
-                        <p className="text-text-secondary text-sm">
-                          {benefit.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  </StaggerItem>
-                ))}
+                {clientBenefits.map((benefit, index) => {
+                  const IconComponent = benefit.icon;
+                  return (
+                    <StaggerItem key={benefit.title}>
+                      <motion.div
+                        className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.02] hover:bg-accent-gold/[0.05] transition-colors"
+                        whileHover={{ x: 8 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="text-accent-gold">
+                          <IconComponent size={24} strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-white mb-1">
+                            {benefit.title}
+                          </h4>
+                          <p className="text-text-secondary text-sm">
+                            {benefit.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </StaggerItem>
+                  );
+                })}
               </StaggerContainer>
             </Card>
           </ScrollReveal>
 
           {/* Provider benefits */}
           <ScrollReveal direction="right" delay={0.2}>
-            <Card className="p-6 md:p-8 h-full border-accent-blue/20">
+            <Card className="p-6 md:p-8 h-full border-accent-honey/20">
               <div className="flex items-center gap-3 mb-8">
-                <span className="text-4xl">🤝</span>
+                <div className="w-12 h-12 rounded-full bg-accent-honey/10 flex items-center justify-center">
+                  <Users className="w-6 h-6 text-accent-honey" />
+                </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">Per Me (Fornitore)</h3>
                   <p className="text-text-secondary text-sm">Perché scelgo questo modello</p>
@@ -126,25 +147,30 @@ export function WhyRevenueShare() {
               </div>
 
               <StaggerContainer className="space-y-4">
-                {providerBenefits.map((benefit, index) => (
-                  <StaggerItem key={benefit.title}>
-                    <motion.div
-                      className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.02] hover:bg-accent-blue/[0.05] transition-colors"
-                      whileHover={{ x: 8 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <span className="text-2xl">{benefit.icon}</span>
-                      <div>
-                        <h4 className="font-semibold text-white mb-1">
-                          {benefit.title}
-                        </h4>
-                        <p className="text-text-secondary text-sm">
-                          {benefit.description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  </StaggerItem>
-                ))}
+                {providerBenefits.map((benefit, index) => {
+                  const IconComponent = benefit.icon;
+                  return (
+                    <StaggerItem key={benefit.title}>
+                      <motion.div
+                        className="flex items-start gap-4 p-4 rounded-lg bg-white/[0.02] hover:bg-accent-honey/[0.05] transition-colors"
+                        whileHover={{ x: 8 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <div className="text-accent-honey">
+                          <IconComponent size={24} strokeWidth={1.5} />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-white mb-1">
+                            {benefit.title}
+                          </h4>
+                          <p className="text-text-secondary text-sm">
+                            {benefit.description}
+                          </p>
+                        </div>
+                      </motion.div>
+                    </StaggerItem>
+                  );
+                })}
               </StaggerContainer>
             </Card>
           </ScrollReveal>
@@ -154,11 +180,11 @@ export function WhyRevenueShare() {
         <ScrollReveal delay={0.4} className="mt-12">
           <div className="flex items-center justify-center gap-4">
             <motion.div
-              className="w-12 h-12 rounded-full bg-accent-lime/20 flex items-center justify-center"
+              className="w-12 h-12 rounded-full bg-accent-gold/20 flex items-center justify-center"
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              <span className="text-accent-lime text-xl">👤</span>
+              <User className="w-5 h-5 text-accent-gold" />
             </motion.div>
 
             <motion.div
@@ -167,7 +193,7 @@ export function WhyRevenueShare() {
               whileInView={{ scaleX: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-accent-lime via-white to-accent-blue rounded-full" />
+              <div className="absolute inset-0 bg-gradient-to-r from-accent-gold via-white to-accent-honey rounded-full" />
               <motion.div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-white"
                 animate={{ x: [-30, 30, -30] }}
@@ -176,11 +202,11 @@ export function WhyRevenueShare() {
             </motion.div>
 
             <motion.div
-              className="w-12 h-12 rounded-full bg-accent-blue/20 flex items-center justify-center"
+              className="w-12 h-12 rounded-full bg-accent-honey/20 flex items-center justify-center"
               animate={{ scale: [1, 1.1, 1] }}
               transition={{ duration: 2, repeat: Infinity, delay: 1 }}
             >
-              <span className="text-accent-blue text-xl">🤝</span>
+              <Link2 className="w-5 h-5 text-accent-honey" />
             </motion.div>
           </div>
 

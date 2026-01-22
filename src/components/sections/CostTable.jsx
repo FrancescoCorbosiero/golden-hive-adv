@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Sprout, Rocket, Gem } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Card } from '../ui/Card';
 import { Badge } from '../ui/Badge';
@@ -16,6 +17,12 @@ const revenueRows = [
   { revenue: 15000, label: '€15,000' },
   { revenue: 25000, label: '€25,000+' },
 ];
+
+const planIcons = {
+  starter: Sprout,
+  growth: Rocket,
+  pro: Gem,
+};
 
 export function CostTable() {
   const planOrder = ['starter', 'growth', 'pro'];
@@ -43,7 +50,7 @@ export function CostTable() {
         {/* Section header */}
         <ScrollReveal className="text-center mb-12">
           <h2 className="text-fluid-3xl md:text-fluid-4xl font-bold mb-6">
-            Simulazione Costi <span className="text-accent-blue">Dettagliata</span>
+            Simulazione Costi <span className="text-accent-gold-light">Dettagliata</span>
           </h2>
           <p className="text-text-secondary text-fluid-lg max-w-2xl mx-auto">
             Vedi esattamente quanto pagheresti a diversi livelli di fatturato
@@ -63,16 +70,17 @@ export function CostTable() {
                     </th>
                     {planOrder.map((planId) => {
                       const plan = PLANS[planId];
+                      const Icon = planIcons[planId];
                       return (
                         <th
                           key={planId}
                           className={`
                             text-center p-4 md:p-6 font-medium text-sm uppercase tracking-wide
-                            ${plan.featured ? 'text-accent-lime' : 'text-text-secondary'}
+                            ${plan.featured ? 'text-accent-gold' : 'text-text-secondary'}
                           `}
                         >
                           <div className="flex items-center justify-center gap-2">
-                            <span>{plan.emoji}</span>
+                            <Icon className="w-4 h-4" />
                             <span>{plan.name}</span>
                             <span className="text-xs opacity-70">({plan.revenueShareDisplay})</span>
                           </div>
@@ -107,7 +115,7 @@ export function CostTable() {
                             key={planId}
                             className={`
                               text-center p-4 md:p-6
-                              ${plan.featured ? 'bg-accent-lime/[0.03]' : ''}
+                              ${plan.featured ? 'bg-accent-gold/[0.03]' : ''}
                             `}
                           >
                             <div className="flex flex-col items-center gap-1">
@@ -116,9 +124,9 @@ export function CostTable() {
                                   font-semibold
                                   ${
                                     cellData.status === 'max'
-                                      ? 'text-accent-lime'
+                                      ? 'text-accent-gold'
                                       : cellData.status === 'min'
-                                      ? 'text-accent-blue'
+                                      ? 'text-accent-gold-light'
                                       : 'text-white'
                                   }
                                 `}
@@ -135,7 +143,7 @@ export function CostTable() {
                                   animate={{ scale: [1, 1.05, 1] }}
                                   transition={{ duration: 2, repeat: Infinity }}
                                 >
-                                  <Badge variant="lime" className="text-[10px] px-2 py-0.5">
+                                  <Badge variant="gold" className="text-[10px] px-2 py-0.5">
                                     MAX
                                   </Badge>
                                 </motion.div>
@@ -161,10 +169,10 @@ export function CostTable() {
             <span className="text-text-secondary">Minimo garantito</span>
           </div>
           <div className="flex items-center gap-2">
-            <Badge variant="lime" className="text-[10px] px-2 py-0.5">
+            <Badge variant="gold" className="text-[10px] px-2 py-0.5">
               MAX
             </Badge>
-            <span className="text-text-secondary">Cap raggiunto — non paghi di più</span>
+            <span className="text-text-secondary">Cap raggiunto — non paghi di piu</span>
           </div>
         </ScrollReveal>
       </Container>

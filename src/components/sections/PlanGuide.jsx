@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Sprout, Rocket, Gem } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
@@ -21,7 +21,7 @@ const planGuides = {
   growth: {
     title: 'Scegli GROWTH se:',
     points: [
-      'Hai già un business attivo',
+      'Hai gia un business attivo',
       'Fatturi €5,000-€15,000/mese',
       'Vuoi scalare senza limiti',
       'Hai bisogno di automazione completa',
@@ -41,6 +41,12 @@ const planGuides = {
 };
 
 const planOrder = ['starter', 'growth', 'pro'];
+
+const planIcons = {
+  starter: Sprout,
+  growth: Rocket,
+  pro: Gem,
+};
 
 export function PlanGuide() {
   const [activePlan, setActivePlan] = useState('growth');
@@ -73,6 +79,7 @@ export function PlanGuide() {
           {planOrder.map((planId) => {
             const plan = PLANS[planId];
             const isActive = activePlan === planId;
+            const Icon = planIcons[planId];
 
             return (
               <button
@@ -94,7 +101,7 @@ export function PlanGuide() {
                       absolute inset-0 rounded-full
                       ${
                         plan.featured
-                          ? 'bg-accent-lime'
+                          ? 'bg-accent-gold'
                           : plan.accent === 'gold'
                           ? 'bg-accent-gold'
                           : 'bg-white'
@@ -104,7 +111,7 @@ export function PlanGuide() {
                   />
                 )}
                 <span className="relative flex items-center gap-2">
-                  <span>{plan.emoji}</span>
+                  <Icon className="w-4 h-4" />
                   <span className="hidden md:inline">{plan.name}</span>
                 </span>
               </button>
@@ -127,16 +134,23 @@ export function PlanGuide() {
                   p-8 md:p-10
                   ${
                     planGuides[activePlan].highlight
-                      ? 'border-accent-lime/30'
+                      ? 'border-accent-gold/30'
                       : ''
                   }
                 `}
                 glow={planGuides[activePlan].highlight}
-                glowColor="lime"
+                glowColor="gold"
               >
                 {/* Plan header */}
                 <div className="flex items-center gap-4 mb-8">
-                  <span className="text-5xl">{PLANS[activePlan].emoji}</span>
+                  {(() => {
+                    const Icon = planIcons[activePlan];
+                    return (
+                      <div className="w-16 h-16 rounded-2xl bg-accent-gold/10 flex items-center justify-center">
+                        <Icon className="w-8 h-8 text-accent-gold" />
+                      </div>
+                    );
+                  })()}
                   <div>
                     <h3 className="text-2xl font-bold text-white">
                       {planGuides[activePlan].title}
@@ -165,7 +179,7 @@ export function PlanGuide() {
                           w-6 h-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5
                           ${
                             planGuides[activePlan].highlight
-                              ? 'bg-accent-lime/20'
+                              ? 'bg-accent-gold/20'
                               : 'bg-white/10'
                           }
                         `}
@@ -175,7 +189,7 @@ export function PlanGuide() {
                             w-4 h-4
                             ${
                               planGuides[activePlan].highlight
-                                ? 'text-accent-lime'
+                                ? 'text-accent-gold'
                                 : 'text-white'
                             }
                           `}
@@ -205,7 +219,7 @@ export function PlanGuide() {
             Non sei sicuro?{' '}
             <button
               onClick={scrollToContact}
-              className="text-accent-lime hover:underline"
+              className="text-accent-gold hover:underline"
             >
               Prenota una call gratuita
             </button>{' '}

@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
 import { Problem } from './components/sections/Problem';
 import { Solution } from './components/sections/Solution';
@@ -13,17 +15,21 @@ import { Process } from './components/sections/Process';
 import { FAQ } from './components/sections/FAQ';
 import { FinalCTA } from './components/sections/FinalCTA';
 import { Footer } from './components/sections/Footer';
+import { CustomPage } from './pages/CustomPage';
 
-function App() {
+function MainPage() {
   return (
-    <div className="relative min-h-screen bg-bg-primary text-text-primary noise-overlay">
+    <div className="relative min-h-screen bg-black text-text-primary noise-overlay">
       {/* Skip to main content link for accessibility */}
       <a
         href="#hero"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent-lime focus:text-black focus:rounded-lg"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-accent-gold focus:text-black focus:rounded-lg"
       >
         Vai al contenuto principale
       </a>
+
+      {/* Fixed Header */}
+      <Header />
 
       <main>
         {/* Section 1: Hero */}
@@ -73,6 +79,36 @@ function App() {
       <Footer />
     </div>
   );
+}
+
+function App() {
+  const [currentPage, setCurrentPage] = useState('main');
+
+  useEffect(() => {
+    // Check hash on mount and on hash change
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === '#custom' || hash === '#personalizzato') {
+        setCurrentPage('custom');
+      } else {
+        setCurrentPage('main');
+      }
+    };
+
+    // Initial check
+    handleHashChange();
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
+
+  return currentPage === 'custom' ? <CustomPage /> : <MainPage />;
 }
 
 export default App;

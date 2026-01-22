@@ -1,63 +1,62 @@
 import { motion } from 'framer-motion';
-import { Container } from '../ui/Container';
-import { ScrollReveal } from '../animations/ScrollReveal';
-import { useInView } from '../../hooks/useInView';
+import { Container } from '../../ui/Container';
+import { ScrollReveal } from '../../animations/ScrollReveal';
+import { useInView } from '../../../hooks/useInView';
 import {
-  Phone,
-  ClipboardList,
-  FileCheck,
-  Settings,
+  MessageCircle,
+  FileText,
+  CreditCard,
+  Code,
   Rocket,
-  TrendingUp,
-  Target,
+  HeartPulse,
 } from 'lucide-react';
 
 const steps = [
   {
     number: '01',
-    title: 'Call Gratuita',
-    description: '30 minuti per capire le tue esigenze',
+    title: 'Consulenza Gratuita',
+    description: 'Parliamo del tuo progetto e delle tue esigenze',
     duration: '30 min',
-    icon: Phone,
+    icon: MessageCircle,
   },
   {
     number: '02',
-    title: 'Proposta Personalizzata',
-    description: 'Piano consigliato + timeline',
-    duration: '24-48h',
-    icon: ClipboardList,
+    title: 'Preventivo Dettagliato',
+    description: 'Ricevi una proposta personalizzata entro 48h',
+    duration: '48h',
+    icon: FileText,
   },
   {
     number: '03',
-    title: 'Accordo e Pagamento',
-    description: '50% anticipo, 50% al lancio',
-    duration: 'Stesso giorno',
-    icon: FileCheck,
+    title: 'Accordo e Avvio',
+    description: '50% anticipo per iniziare lo sviluppo',
+    duration: '1 giorno',
+    icon: CreditCard,
   },
   {
     number: '04',
-    title: 'Sviluppo',
-    description: 'Costruiamo il tuo store',
-    duration: '7-14 giorni',
-    icon: Settings,
+    title: 'Sviluppo Su Misura',
+    description: 'Costruiamo il tuo store con aggiornamenti regolari',
+    duration: '10-21 giorni',
+    icon: Code,
   },
   {
     number: '05',
     title: 'Lancio',
-    description: 'Go live + supporto attivo',
+    description: 'Go live e saldo finale (50%)',
     duration: 'Giorno X',
     icon: Rocket,
   },
   {
     number: '06',
-    title: 'Fatturazione Mensile',
-    description: 'Revenue share attivo',
-    duration: 'Ongoing',
-    icon: TrendingUp,
+    title: 'Supporto Attivo',
+    description: 'Manutenzione continua con revenue share',
+    duration: 'Sempre',
+    icon: HeartPulse,
   },
 ];
 
-export function Process() {
+export function CustomProcess() {
   const [ref, isInView] = useInView({ threshold: 0.2 });
 
   return (
@@ -72,10 +71,10 @@ export function Process() {
         {/* Section header */}
         <ScrollReveal className="text-center mb-16">
           <h2 className="text-fluid-3xl md:text-fluid-4xl font-bold mb-6">
-            Come <span className="text-accent-gold">Funziona</span>
+            Il Nostro <span className="text-accent-gold">Processo</span>
           </h2>
           <p className="text-text-secondary text-fluid-lg max-w-2xl mx-auto">
-            Dal primo contatto al lancio in 7-14 giorni
+            Dalla prima call al lancio, un percorso chiaro e trasparente
           </p>
         </ScrollReveal>
 
@@ -159,22 +158,9 @@ export function Process() {
             })}
           </div>
         </div>
-
-        {/* Bottom CTA hint */}
-        <ScrollReveal delay={0.4} className="text-center mt-16">
-          <motion.div
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-accent-gold/10 border border-accent-gold/20"
-            whileHover={{ scale: 1.05 }}
-          >
-            <Target className="w-5 h-5 text-accent-gold" />
-            <span className="text-white font-medium">
-              Pronto a iniziare? Il primo passo è una call gratuita
-            </span>
-          </motion.div>
-        </ScrollReveal>
       </Container>
     </section>
   );
 }
 
-export default Process;
+export default CustomProcess;

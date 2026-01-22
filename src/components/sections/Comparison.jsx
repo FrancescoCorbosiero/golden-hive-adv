@@ -48,7 +48,7 @@ export function Comparison() {
         {/* Section header */}
         <ScrollReveal className="text-center mb-12">
           <h2 className="text-fluid-3xl md:text-fluid-4xl font-bold mb-6">
-            Confronto Con Le <span className="text-accent-coral">Alternative</span>
+            Confronto Con Le <span className="text-accent-gold">Alternative</span>
           </h2>
           <p className="text-text-secondary text-fluid-lg max-w-2xl mx-auto">
             Vedi come si posiziona il nostro servizio rispetto alle altre opzioni
@@ -87,7 +87,7 @@ export function Comparison() {
                         border-b border-white/5 transition-colors
                         ${
                           comp.highlighted
-                            ? 'bg-accent-lime/[0.08]'
+                            ? 'bg-accent-gold/[0.08]'
                             : 'hover:bg-white/[0.02]'
                         }
                       `}
@@ -97,7 +97,7 @@ export function Comparison() {
                         <div className="flex items-center gap-3">
                           {comp.highlighted && (
                             <motion.div
-                              className="w-2 h-2 rounded-full bg-accent-lime"
+                              className="w-2 h-2 rounded-full bg-accent-gold"
                               animate={{ scale: [1, 1.2, 1] }}
                               transition={{ duration: 2, repeat: Infinity }}
                             />
@@ -105,7 +105,7 @@ export function Comparison() {
                           <span
                             className={`
                               font-medium
-                              ${comp.highlighted ? 'text-accent-lime' : 'text-white'}
+                              ${comp.highlighted ? 'text-accent-gold' : 'text-white'}
                             `}
                           >
                             {comp.solution}
@@ -139,16 +139,16 @@ export function Comparison() {
                       <td className="text-center p-4 md:p-6">
                         <div className="flex items-center justify-center gap-2">
                           {comp.support.good ? (
-                            <Check className="w-4 h-4 text-accent-lime" />
+                            <Check className="w-4 h-4 text-accent-gold" />
                           ) : (
-                            <X className="w-4 h-4 text-accent-coral" />
+                            <X className="w-4 h-4 text-error" />
                           )}
                           <span
                             className={`
                               text-sm
                               ${
                                 comp.support.good
-                                  ? 'text-accent-lime font-medium'
+                                  ? 'text-accent-gold font-medium'
                                   : 'text-text-muted'
                               }
                             `}
@@ -164,11 +164,11 @@ export function Comparison() {
             </div>
 
             {/* Bottom highlight */}
-            <div className="p-4 md:p-6 bg-accent-lime/[0.05] border-t border-accent-lime/20">
+            <div className="p-4 md:p-6 bg-accent-gold/[0.05] border-t border-accent-gold/20">
               <p className="text-center text-text-secondary">
                 Con il nostro modello Revenue Share, paghi in proporzione al tuo successo.{' '}
-                <span className="text-accent-lime font-medium">
-                  Più vendi, più cresciamo insieme.
+                <span className="text-accent-gold font-medium">
+                  Piu vendi, piu cresciamo insieme.
                 </span>
               </p>
             </div>

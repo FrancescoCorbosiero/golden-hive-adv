@@ -7,8 +7,9 @@ export function Card({
   className,
   tilt = false,
   glow = false,
-  glowColor = 'lime',
+  glowColor = 'gold',
   elevated = false,
+  variant = 'default',
   ...props
 }) {
   const ref = useRef(null);
@@ -21,8 +22,8 @@ export function Card({
     const centerX = rect.left + rect.width / 2;
     const centerY = rect.top + rect.height / 2;
 
-    const rotateX = (e.clientY - centerY) / 20;
-    const rotateY = (centerX - e.clientX) / 20;
+    const rotateX = (e.clientY - centerY) / 25;
+    const rotateY = (centerX - e.clientX) / 25;
 
     setRotate({ x: rotateX, y: rotateY });
   };
@@ -32,10 +33,15 @@ export function Card({
   };
 
   const glowColors = {
-    lime: 'rgba(204, 255, 0, 0.15)',
-    gold: 'rgba(245, 166, 35, 0.15)',
-    blue: 'rgba(0, 212, 255, 0.15)',
-    coral: 'rgba(255, 107, 107, 0.15)',
+    gold: 'rgba(212, 160, 18, 0.15)',
+    honey: 'rgba(255, 184, 0, 0.15)',
+    white: 'rgba(255, 255, 255, 0.08)',
+  };
+
+  const variants = {
+    default: 'bg-bg-card border-accent-gold/10 hover:border-accent-gold/20',
+    elevated: 'bg-bg-elevated border-accent-gold/15 hover:border-accent-gold/30',
+    featured: 'bg-gradient-to-br from-accent-gold/10 to-transparent border-accent-gold/30 hover:border-accent-gold/50',
   };
 
   return (
@@ -43,12 +49,12 @@ export function Card({
       ref={ref}
       className={clsx(
         'relative overflow-hidden',
-        'bg-white/[0.03] backdrop-blur-xl',
-        'border border-white/[0.08]',
+        'backdrop-blur-xl',
+        'border',
         'rounded-2xl',
-        'transition-colors duration-300',
-        'hover:bg-white/[0.05] hover:border-white/[0.12]',
-        elevated && 'shadow-xl',
+        'transition-all duration-300',
+        variants[variant],
+        elevated && 'shadow-xl shadow-black/50',
         className
       )}
       style={{
@@ -67,7 +73,7 @@ export function Card({
       transition={{ type: 'spring', stiffness: 300, damping: 30 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      whileHover={tilt ? {} : { y: -8, scale: 1.02 }}
+      whileHover={tilt ? {} : { y: -6 }}
       {...props}
     >
       {children}
