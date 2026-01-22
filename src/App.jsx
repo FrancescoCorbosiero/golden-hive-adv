@@ -1,18 +1,22 @@
 import { useState, useEffect } from 'react';
 import { Header } from './components/sections/Header';
 import { Hero } from './components/sections/Hero';
+import { BrandShowcase } from './components/sections/BrandShowcase';
 import { Problem } from './components/sections/Problem';
+import { MarketPositioning } from './components/sections/MarketPositioning';
 import { Solution } from './components/sections/Solution';
 import { Pricing } from './components/sections/Pricing';
 import { Calculator } from './components/sections/Calculator';
 import { CostTable } from './components/sections/CostTable';
 import { PlanGuide } from './components/sections/PlanGuide';
 import { Examples } from './components/sections/Examples';
+import { AvailableSlots } from './components/sections/AvailableSlots';
 import { Comparison } from './components/sections/Comparison';
 import { Features } from './components/sections/Features';
 import { WhyRevenueShare } from './components/sections/WhyRevenueShare';
 import { Process } from './components/sections/Process';
 import { FAQ } from './components/sections/FAQ';
+import { Countdown } from './components/sections/Countdown';
 import { FinalCTA } from './components/sections/FinalCTA';
 import { Footer } from './components/sections/Footer';
 import { CustomPage } from './pages/CustomPage';
@@ -35,8 +39,14 @@ function MainPage() {
         {/* Section 1: Hero */}
         <Hero />
 
+        {/* Brand Showcase - Logo & Identity */}
+        <BrandShowcase />
+
         {/* Section 2: Problem / Agitation */}
         <Problem />
+
+        {/* Market Positioning - The 3 Pillars (B2B Partnership) */}
+        <MarketPositioning />
 
         {/* Section 3: Solution / Value Proposition */}
         <Solution />
@@ -56,6 +66,9 @@ function MainPage() {
         {/* Section 8: Real Examples / Case Studies */}
         <Examples />
 
+        {/* Available Slots - FOMO */}
+        <AvailableSlots />
+
         {/* Section 9: Competitor Comparison */}
         <Comparison />
 
@@ -70,6 +83,9 @@ function MainPage() {
 
         {/* Section 13: FAQ */}
         <FAQ />
+
+        {/* Countdown - Urgency FOMO */}
+        <Countdown />
 
         {/* Section 14: Final CTA */}
         <FinalCTA />
