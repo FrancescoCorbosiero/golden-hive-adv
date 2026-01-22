@@ -1,0 +1,665 @@
+# 🚀 CLAUDE CODE PROMPT: Premium E-Commerce Services Landing Page
+
+## PROJECT BRIEF
+
+Create a **single-scroll landing page** for an e-commerce development service using a **Revenue Share + Setup** pricing model. The page must deliver a **"wow effect"** comparable to a €10,000+ agency project—featuring bold typography, fluid animations, scroll-triggered reveals, and an unconventional visual hierarchy that breaks from generic SaaS templates.
+
+**Target audience:** Italian e-commerce resellers (sneakers, streetwear) looking for professional WooCommerce stores with SEO optimization.
+
+**Language:** Italian (with English technical terms where appropriate)
+
+---
+
+## 🎨 DESIGN PHILOSOPHY
+
+### Visual Identity
+- **Primary Color:** Deep black (#0a0a0a) with electric accents
+- **Accent Colors:** 
+  - Electric Lime (#CCFF00) — primary CTA, highlights
+  - Hot Coral (#FF6B6B) — urgency, warnings
+  - Electric Blue (#00D4FF) — trust, technology
+  - Soft Gold (#F5A623) — premium, value
+- **Typography:**
+  - Headlines: **Clash Display** or **Space Grotesk** (bold, condensed, impactful)
+  - Body: **Inter** or **Satoshi** (clean, modern, readable)
+  - Accents: **JetBrains Mono** (for numbers, percentages, code-like elements)
+- **Background:** Dark with subtle grain texture, gradient mesh overlays, or animated noise
+
+### Animation Requirements
+- **Scroll-triggered reveals** using Intersection Observer or GSAP ScrollTrigger
+- **Staggered text animations** (letters or words appearing sequentially)
+- **Parallax depth layers** for visual interest
+- **Micro-interactions** on all interactive elements (buttons, cards, inputs)
+- **Smooth number counters** that animate when visible
+- **Floating/morphing background shapes** (blobs, gradients)
+- **Magnetic cursor effects** on CTAs
+- **Card hover transforms** with 3D perspective shifts
+
+### Layout Principles
+- **Full-viewport sections** with generous whitespace
+- **Asymmetric grids** — avoid predictable 3-column layouts
+- **Oversized typography** for headlines (clamp-based fluid sizing)
+- **Glassmorphism cards** with backdrop blur
+- **Gradient borders** on key elements
+- **Reveal animations** that feel smooth and intentional, not gimmicky
+
+---
+
+## 📐 REQUIRED SECTIONS (In Order)
+
+### 1. HERO SECTION
+**Goal:** Instant impact, communicate core value proposition
+
+**Content:**
+- **Pre-headline:** "Revenue Share Model"
+- **Main Headline:** "Pago Solo Se Vendi" (or "Cresci Insieme A Noi")
+- **Subheadline:** "Store WooCommerce professionali con pricing che si adatta al tuo business. Tu investi nel setup, io investo nel tuo successo."
+- **Primary CTA:** "Prenota Una Call Gratuita" (electric lime, magnetic hover)
+- **Secondary CTA:** "Scopri I Piani" (ghost button, scroll to pricing)
+- **Trust badges:** "7-14 giorni • SEO Incluso • Zero Sorprese"
+
+**Visual Elements:**
+- Animated gradient mesh background
+- Floating 3D mockup of an e-commerce store (or abstract shapes)
+- Subtle particle effect or noise texture
+- Scroll indicator with bounce animation
+
+**Animation:**
+- Text reveals with staggered letter animation
+- Background gradient slowly morphing
+- CTAs with magnetic cursor effect
+- Parallax on floating elements
+
+---
+
+### 2. PROBLEM/AGITATION SECTION
+**Goal:** Resonate with pain points, build emotional connection
+
+**Content:**
+- **Headline:** "Il Problema Con Le Soluzioni Tradizionali"
+- **Pain Points (animated cards):**
+  1. "Agenzie tradizionali: €500-1,500/mese fissi, anche quando vendi zero"
+  2. "Shopify + App + Temi: Costi nascosti che crescono senza controllo"
+  3. "Freelancer: Nessun supporto dopo il lancio, problemi irrisolti"
+  4. "Fai da te: Settimane di lavoro, risultati mediocri, SEO inesistente"
+
+**Visual Elements:**
+- Cards with red/orange accent (warning vibe)
+- Strikethrough animations on competitor prices
+- Comparison visual showing "their way" vs "our way"
+
+**Animation:**
+- Cards slide in from different directions
+- Numbers animate with counting effect
+- Background shifts to slightly warmer tone
+
+---
+
+### 3. SOLUTION/VALUE PROPOSITION
+**Goal:** Present the Revenue Share model as the obvious solution
+
+**Content:**
+- **Headline:** "La Logica del Revenue Share"
+- **Core Message:**
+  - "Tu investi nel setup (una tantum)"
+  - "Io investo nel tuo successo (guadagno solo se tu guadagni)"
+  - "Entrambi protetti con min/max cap"
+
+**Visual Elements:**
+- Split screen or diagonal layout
+- Animated diagram showing the flow: Setup → Launch → Growth → Shared Success
+- Icons for each benefit
+
+**Animation:**
+- Flow diagram animates step by step on scroll
+- Numbers pulse when reached
+- Checkmarks appear with satisfying bounce
+
+---
+
+### 4. PRICING SECTION (MAIN FEATURE)
+**Goal:** Clear, compelling presentation of all three plans
+
+**Layout:** Horizontal cards with the Growth plan elevated/highlighted
+
+#### Plan Cards:
+
+**🌱 STARTER**
+- Tagline: "Per chi inizia | <100 prodotti"
+- Setup: €499 (una tantum)
+- Revenue Share: 4%
+- Min mensile: €79
+- Max mensile: €199
+- Break-even: €4,975/mese
+- Accent: Subtle, muted
+
+**🚀 GROWTH ⭐ CONSIGLIATO**
+- Tagline: "Per chi vuole scalare | Prodotti illimitati"
+- Setup: €999 (una tantum)
+- Revenue Share: 3%
+- Min mensile: €99
+- Max mensile: €399
+- Break-even: €13,300/mese
+- Accent: Electric Lime, elevated card, "MOST POPULAR" badge
+
+**💎 PRO**
+- Tagline: "Per operazioni serie | Full automation"
+- Setup: €1,999 (una tantum)
+- Revenue Share: 2.5%
+- Min mensile: €149
+- Max mensile: €599
+- Break-even: €23,960/mese
+- Accent: Gold/premium feel
+
+**Visual Elements:**
+- Glassmorphism cards with gradient borders
+- 3D tilt effect on hover
+- Animated price reveals
+- "CONSIGLIATO" ribbon on Growth plan
+- Subtle glow effect on featured card
+
+**Animation:**
+- Cards stagger in on scroll
+- Prices count up from 0
+- Hover triggers 3D perspective shift
+- Background particles react to mouse position
+
+---
+
+### 5. INTERACTIVE COST CALCULATOR
+**Goal:** Let users see exactly what they'd pay at their revenue level
+
+**Content:**
+- **Headline:** "Quanto Pagheresti Tu?"
+- **Slider Input:** Revenue from €0 to €50,000
+- **Live Output Display:**
+  - Selected plan costs update in real-time
+  - Show: "Con €X di fatturato, paghi €Y/mese"
+  - Highlight when they hit the cap: "🎉 Hai raggiunto il cap! Non paghi di più"
+
+**Visual Elements:**
+- Custom-styled range slider with gradient track
+- Animated output numbers
+- Visual comparison bar chart
+- Tooltip showing calculation breakdown
+
+**Animation:**
+- Numbers smoothly interpolate on slider change
+- Success confetti when hitting cap
+- Cards pulse when their values change
+
+---
+
+### 6. COST SIMULATION TABLE
+**Goal:** Detailed breakdown for data-driven prospects
+
+**Content:**
+| Fatturato Mensile | Starter (4%) | Growth (3%) | Pro (2.5%) |
+|-------------------|--------------|-------------|------------|
+| €0 - €1,975 | €79 (min) | €99 (min) | €149 (min) |
+| €2,000 | €80 | €99 (min) | €149 (min) |
+| €3,000 | €120 | €99 (min) | €149 (min) |
+| €5,000 | €199 (max) | €150 | €149 (min) |
+| €7,500 | €199 (max) | €225 | €188 |
+| €10,000 | €199 (max) | €300 | €250 |
+| €15,000 | €199 (max) | €399 (max) | €375 |
+| €25,000+ | €199 (max) | €399 (max) | €599 (max) |
+
+**Visual Elements:**
+- Highlighted cells when at min/max
+- Color-coded rows (green for favorable scenarios)
+- Sticky header on scroll within table
+
+**Animation:**
+- Rows reveal staggered on scroll
+- Hover highlights entire row
+- "MAX" badges pulse subtly
+
+---
+
+### 7. PLAN SELECTOR GUIDE
+**Goal:** Help users self-identify the right plan
+
+**Content:**
+**Scegli STARTER se:**
+- Stai iniziando (0-50 vendite/mese)
+- Budget limitato per il setup
+- Fatturi meno di €5,000/mese
+- Non hai bisogno di sync bidirezionale
+
+**Scegli GROWTH se:**
+- Hai già un business attivo
+- Fatturi €5,000-€15,000/mese
+- Vuoi scalare senza limiti
+- Hai bisogno di automazione completa
+
+**Scegli PRO se:**
+- Fatturi €15,000+/mese
+- Vuoi il massimo controllo
+- Hai bisogno di sviluppo custom
+- Vuoi supporto prioritario
+
+**Visual Elements:**
+- Interactive accordion or tabs
+- Checkmark icons with animation
+- "This is you?" hover state that highlights the CTA
+
+**Animation:**
+- Accordions expand smoothly
+- Checkmarks draw in sequence
+- Selected plan card glows
+
+---
+
+### 8. REAL EXAMPLES / CASE STUDIES
+**Goal:** Make abstract numbers concrete and relatable
+
+**Content:**
+
+**Esempio 1: Reseller Piccolo (Starter)**
+- Fatturato: €3,000/mese
+- Margine: 20% = €600 profitto
+- Costo servizio: €120/mese (4%)
+- % del profitto: 20%
+- "Paghi €120 per avere tutto automatizzato, risparmi 10+ ore/settimana"
+
+**Esempio 2: Reseller Medio (Growth)**
+- Fatturato: €8,000/mese
+- Margine: 20% = €1,600 profitto
+- Costo servizio: €240/mese (3%)
+- % del profitto: 15%
+- "SEO ti porta traffico gratuito, zero errori di stock"
+
+**Esempio 3: Reseller Grande (Pro)**
+- Fatturato: €25,000/mese
+- Margine: 20% = €5,000 profitto
+- Costo servizio: €599/mese (CAP!)
+- % del profitto: 12%
+- "Paghi €599 MAX anche se fatturo €50k — economia di scala"
+
+**Visual Elements:**
+- Persona avatars or illustrations
+- Animated calculation breakdowns
+- Progress bars showing profit retention
+- Success metrics highlighted
+
+**Animation:**
+- Numbers animate as you scroll to each example
+- Progress bars fill smoothly
+- Persona cards have subtle floating effect
+
+---
+
+### 9. COMPETITOR COMPARISON
+**Goal:** Reinforce value through direct comparison
+
+**Content:**
+| Soluzione | Costo Mensile | Costo Annuale | Supporto |
+|-----------|---------------|---------------|----------|
+| Shopify + App + Tema | €100-150/mese | €1,200-1,800 | Limitato |
+| Agenzia tradizionale | €500-1,500/mese | €6,000-18,000 | Variabile |
+| Freelancer | €200-500/progetto | N/A | Nessuno |
+| **Nostro Growth (€8k fat.)** | **~€240/mese** | **~€2,880** | **Incluso** |
+
+**Visual Elements:**
+- Competitors in muted colors
+- "Our solution" row highlighted with electric lime
+- Strikethrough animations on competitor disadvantages
+- Checkmarks vs X marks
+
+**Animation:**
+- Table rows slide in
+- Our row has glow effect
+- Numbers animate on scroll
+
+---
+
+### 10. WHAT'S INCLUDED
+**Goal:** Comprehensive list of deliverables to justify value
+
+**Content:**
+- ✔ Store WooCommerce professionale
+- ✔ Tema premium ottimizzato
+- ✔ SSL e sicurezza
+- ✔ Hosting gestito
+- ✔ Backup giornalieri
+- ✔ Aggiornamenti automatici
+- ✔ Sync stock con il tuo feed
+- ✔ SEO base configurato
+- ✔ Mobile responsive
+- ✔ Pagamenti (Stripe/PayPal)
+- ✔ Supporto post-lancio
+
+**Visual Elements:**
+- Bento grid layout (irregular, modern)
+- Icons for each feature
+- Hover reveals more detail
+- Gradient backgrounds on cards
+
+**Animation:**
+- Grid items fade in staggered
+- Icons have subtle bounce on reveal
+- Hover triggers scale + shadow
+
+---
+
+### 11. WHY REVENUE SHARE
+**Goal:** Build trust by explaining the model benefits for both parties
+
+**Content:**
+
+**Per Te (Cliente):**
+1. Rischio ridotto — Se vendi poco, paghi poco
+2. Allineamento interessi — Io voglio che tu venda
+3. Cap garantito — Mai sorprese, conosci il massimo
+4. Flessibilità — Si adatta al tuo business
+
+**Per Me (Fornitore):**
+1. Upside potential — Se hai successo, cresco con te
+2. Relazione duratura — Non "faccio e sparisco"
+3. Incentivo a fare bene — Il mio guadagno dipende dalla qualità
+4. Clienti seri — Chi paga revenue share è committed
+
+**Visual Elements:**
+- Two-column or split layout
+- Handshake/partnership iconography
+- Trust badges
+- Gradient divider
+
+**Animation:**
+- Columns slide in from opposite sides
+- Icons animate on reveal
+- Partnership visual connection draws
+
+---
+
+### 12. PROCESS / NEXT STEPS
+**Goal:** Clear path forward, reduce friction
+
+**Content:**
+1. **Call gratuita (30 min)** — Capiamo le tue esigenze
+2. **Proposta personalizzata** — Piano consigliato + timeline
+3. **Accordo e pagamento setup** — 50% anticipo, 50% al lancio
+4. **Sviluppo** — 7-14 giorni
+5. **Lancio** — Go live + supporto
+6. **Fatturazione mensile** — Revenue share attivo
+
+**Visual Elements:**
+- Horizontal timeline or vertical stepper
+- Step numbers with animated counters
+- Progress line that fills as you scroll
+- Each step has icon + brief description
+
+**Animation:**
+- Timeline draws as you scroll
+- Steps reveal sequentially
+- Current step pulses
+- Line animates between steps
+
+---
+
+### 13. IMPORTANT NOTES / FAQ
+**Goal:** Address objections, clarify terms
+
+**Content:**
+1. Fatturato = Vendite lorde (prima dei costi, resi esclusi)
+2. Fatturazione mensile — Pagamento entro il 5 del mese successivo
+3. Report automatico — Dashboard con vendite e calcolo fee
+4. Minimo garantito — Si paga anche con zero vendite (copre hosting/manutenzione)
+5. Cambio piano — Possibile upgrade/downgrade con 30 giorni preavviso
+6. Cancellazione — 60 giorni preavviso, il sito rimane tuo
+
+**Visual Elements:**
+- Expandable accordion
+- Warning/info icons
+- Tooltips for complex terms
+
+**Animation:**
+- Accordions expand smoothly
+- Icons have subtle attention animation
+- Hover reveals additional context
+
+---
+
+### 14. FINAL CTA SECTION
+**Goal:** Strong close, motivate action
+
+**Content:**
+- **Headline:** "Pronto a Crescere Insieme?"
+- **Subheadline:** "Prenota una call gratuita di 30 minuti. Nessun impegno, solo una conversazione per capire se possiamo aiutarti."
+- **Primary CTA:** "Prenota La Tua Call Gratuita" (large, prominent)
+- **Secondary info:** "O scrivici: [email] | Rispondiamo entro 24h"
+- **Trust element:** "Prezzi IVA esclusa | Validi da Gennaio 2025"
+
+**Visual Elements:**
+- Full-width section with gradient background
+- Large CTA button with glow effect
+- Contact alternatives
+- Social proof (if available)
+
+**Animation:**
+- Background gradient animates
+- CTA has continuous subtle pulse
+- Magnetic cursor effect on button
+
+---
+
+### 15. FOOTER
+**Content:**
+- Logo
+- Quick links
+- Contact info
+- Social links
+- Legal (Privacy, Terms)
+- VAT number
+- Copyright
+
+---
+
+## 🛠 TECHNICAL REQUIREMENTS
+
+### Framework & Libraries
+```
+- React 18+ (or vanilla JS if preferred)
+- Tailwind CSS for styling
+- Framer Motion OR GSAP for animations
+- Intersection Observer for scroll triggers
+- Lenis or Locomotive Scroll for smooth scrolling (optional)
+```
+
+### Performance
+- Lazy load images and heavy sections
+- Optimize animations for 60fps
+- Use CSS transforms over layout-triggering properties
+- Implement proper will-change hints
+- Core Web Vitals compliant (LCP < 2.5s, CLS < 0.1)
+
+### SEO Requirements
+- Semantic HTML5 structure
+- Proper heading hierarchy (single H1, logical H2/H3)
+- Meta tags (title, description, OG tags)
+- Schema.org markup for Service/Offer
+- Fast loading (performance is ranking factor)
+- Mobile-first responsive design
+
+### Accessibility
+- Keyboard navigation support
+- Reduced motion media query respect
+- Sufficient color contrast
+- Focus states on interactive elements
+- Alt text for images
+- ARIA labels where needed
+
+---
+
+## 📱 RESPONSIVE BREAKPOINTS
+
+```css
+/* Mobile First */
+--mobile: 0px;
+--tablet: 768px;
+--desktop: 1024px;
+--large: 1440px;
+--xlarge: 1920px;
+```
+
+- Mobile: Single column, stacked elements, larger touch targets
+- Tablet: Two-column where appropriate, adjusted spacing
+- Desktop: Full layout with all visual effects
+- Large: Increased whitespace, larger typography
+
+---
+
+## 🎬 ANIMATION SPECIFICATIONS
+
+### Scroll Reveals
+```javascript
+// Intersection Observer config
+threshold: 0.2
+rootMargin: "0px 0px -100px 0px"
+
+// Animation: fade up
+from: { opacity: 0, y: 60 }
+to: { opacity: 1, y: 0 }
+duration: 0.8s
+easing: cubic-bezier(0.22, 1, 0.36, 1)
+stagger: 0.1s (for lists)
+```
+
+### Number Counters
+```javascript
+// Animate from 0 to target
+duration: 1.5s
+easing: easeOut
+format: currency (€) or percentage (%)
+trigger: when element is 50% visible
+```
+
+### Hover Effects
+```javascript
+// Cards
+scale: 1.02
+translateY: -8px
+boxShadow: elevated
+transition: 0.3s ease
+
+// Buttons
+scale: 1.05
+glow: add subtle glow
+transition: 0.2s ease
+```
+
+### Magnetic Cursor (CTAs)
+```javascript
+// Button follows cursor within radius
+radius: 100px
+strength: 0.3
+transition: 0.5s ease-out
+```
+
+---
+
+## 📄 SEO META TAGS
+
+```html
+<title>Store E-Commerce Professionale | Revenue Share Pricing | [Brand Name]</title>
+<meta name="description" content="Store WooCommerce professionali con pricing Revenue Share. Paga solo in base al tuo fatturato. Setup da €499, supporto incluso, SEO ottimizzato. Prenota una call gratuita.">
+<meta name="keywords" content="ecommerce, woocommerce, store online, revenue share, reseller, sneakers, streetwear, SEO">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Pago Solo Se Vendi | Store E-Commerce Revenue Share">
+<meta property="og:description" content="Store professionali con pricing che si adatta al tuo business. Tu investi nel setup, noi investiamo nel tuo successo.">
+<meta property="og:image" content="[og-image-url]">
+<meta property="og:type" content="website">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pago Solo Se Vendi | Store E-Commerce Revenue Share">
+<meta name="twitter:description" content="Store professionali con pricing Revenue Share. Cresci insieme a noi.">
+```
+
+---
+
+## 📊 SCHEMA.ORG MARKUP
+
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Store E-Commerce WooCommerce",
+  "description": "Sviluppo store e-commerce professionali con modello Revenue Share",
+  "provider": {
+    "@type": "Organization",
+    "name": "[Your Brand]",
+    "url": "[Your URL]"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Piano Starter",
+      "price": "499",
+      "priceCurrency": "EUR",
+      "description": "Per chi inizia, <100 prodotti, 4% revenue share"
+    },
+    {
+      "@type": "Offer", 
+      "name": "Piano Growth",
+      "price": "999",
+      "priceCurrency": "EUR",
+      "description": "Per scalare, prodotti illimitati, 3% revenue share"
+    },
+    {
+      "@type": "Offer",
+      "name": "Piano Pro",
+      "price": "1999",
+      "priceCurrency": "EUR",
+      "description": "Full automation, 2.5% revenue share"
+    }
+  ]
+}
+```
+
+---
+
+## ✅ DELIVERABLES CHECKLIST
+
+- [ ] Single HTML file (or React app) with all sections
+- [ ] Responsive design (mobile, tablet, desktop)
+- [ ] All animations implemented and smooth
+- [ ] Interactive cost calculator working
+- [ ] All content in Italian
+- [ ] SEO meta tags included
+- [ ] Schema.org markup included
+- [ ] Performance optimized (<3s load)
+- [ ] Accessibility compliant
+- [ ] Cross-browser tested
+
+---
+
+## 🎯 SUCCESS CRITERIA
+
+The final page should:
+1. **Stop the scroll** — First impression demands attention
+2. **Build desire** — Each section increases want
+3. **Remove objections** — FAQ and examples address concerns
+4. **Create urgency** — Value proposition is clear and compelling
+5. **Drive action** — CTAs are impossible to miss
+6. **Feel premium** — Design quality matches €10k+ agency work
+7. **Load fast** — Performance doesn't sacrifice for beauty
+8. **Rank well** — SEO fundamentals are solid
+
+---
+
+## 💡 PRO TIPS FOR IMPLEMENTATION
+
+1. **Start with mobile layout** — Ensures core content works on small screens
+2. **Add animations last** — Get the static version perfect first
+3. **Test on real devices** — Emulators lie about performance
+4. **Use CSS custom properties** — Makes theming and adjustments easier
+5. **Optimize images** — WebP format, proper sizing, lazy loading
+6. **Test with slow 3G** — If it works there, it works everywhere
+7. **Get feedback** — Show to non-designers, watch where they get confused
+
+---
+
+*This prompt is designed to create a landing page that converts visitors into leads through exceptional design, clear value communication, and strategic persuasion architecture.*
