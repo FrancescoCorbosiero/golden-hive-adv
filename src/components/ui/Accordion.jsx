@@ -32,12 +32,15 @@ function AccordionItem({ item, isOpen, onToggle }) {
         className={clsx(
           'w-full flex items-center justify-between p-5 text-left',
           'hover:bg-white/[0.03] transition-colors duration-200',
-          'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-lime focus-visible:ring-inset'
+          'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-inset'
         )}
         aria-expanded={isOpen}
       >
         <div className="flex items-center gap-3">
-          {item.icon && <span className="text-xl">{item.icon}</span>}
+          {item.icon && (() => {
+            const IconComponent = item.icon;
+            return <IconComponent className="w-5 h-5 text-accent-gold" />;
+          })()}
           <span className="font-medium text-white">{item.question}</span>
         </div>
         <motion.div
