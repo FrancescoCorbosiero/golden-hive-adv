@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Sprout, Rocket, Gem, Check } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Card } from '../ui/Card';
 import { Badge } from '../ui/Badge';
@@ -7,11 +8,16 @@ import { NumberCounter } from '../animations/NumberCounter';
 import { PLANS } from '../../utils/calculatePrice';
 import { formatCurrency } from '../../utils/formatCurrency';
 
+const planIcons = {
+  starter: Sprout,
+  growth: Rocket,
+  pro: Gem,
+};
+
 const examples = [
   {
     persona: 'Reseller Piccolo',
     planId: 'starter',
-    avatar: '🌱',
     revenue: 3000,
     margin: 0.2,
     benefits: [
@@ -22,7 +28,6 @@ const examples = [
   {
     persona: 'Reseller Medio',
     planId: 'growth',
-    avatar: '🚀',
     revenue: 8000,
     margin: 0.2,
     benefits: [
@@ -34,7 +39,6 @@ const examples = [
   {
     persona: 'Reseller Grande',
     planId: 'pro',
-    avatar: '💎',
     revenue: 25000,
     margin: 0.2,
     benefits: [
@@ -62,7 +66,7 @@ export function Examples() {
         {/* Section header */}
         <ScrollReveal className="text-center mb-16">
           <h2 className="text-fluid-3xl md:text-fluid-4xl font-bold mb-6">
-            Esempi <span className="text-accent-purple">Reali</span>
+            Esempi <span className="text-accent-honey">Reali</span>
           </h2>
           <p className="text-text-secondary text-fluid-lg max-w-2xl mx-auto">
             Vedi quanto pagheresti in situazioni concrete
@@ -83,32 +87,33 @@ export function Examples() {
                   );
             const profitPercentage = Math.round((serviceCost / profit) * 100);
             const isAtCap = serviceCost === plan.maxMonthly;
+            const Icon = planIcons[example.planId];
 
             return (
               <StaggerItem key={example.persona}>
                 <Card
                   className={`
                     p-6 md:p-8 h-full
-                    ${example.highlight ? 'border-accent-lime/30' : ''}
+                    ${example.highlight ? 'border-accent-gold/30' : ''}
                   `}
                   tilt
                   glow={example.highlight}
-                  glowColor="lime"
+                  glowColor="gold"
                 >
                   {/* Header */}
                   <div className="text-center mb-6">
-                    <motion.span
-                      className="text-5xl block mb-3"
+                    <motion.div
+                      className="w-16 h-16 mx-auto mb-3 rounded-2xl bg-accent-gold/10 flex items-center justify-center"
                       animate={{ y: [0, -5, 0] }}
                       transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
                     >
-                      {example.avatar}
-                    </motion.span>
+                      <Icon className="w-8 h-8 text-accent-gold" />
+                    </motion.div>
                     <h3 className="text-xl font-bold text-white mb-1">
                       {example.persona}
                     </h3>
                     <Badge
-                      variant={example.highlight ? 'lime' : 'outline'}
+                      variant={example.highlight ? 'gold' : 'outline'}
                       className="text-xs"
                     >
                       {plan.name}
@@ -142,13 +147,13 @@ export function Examples() {
                         <span
                           className={`
                             font-semibold
-                            ${isAtCap ? 'text-accent-lime' : 'text-white'}
+                            ${isAtCap ? 'text-accent-gold' : 'text-white'}
                           `}
                         >
                           {formatCurrency(serviceCost)}/mese
                         </span>
                         {isAtCap && (
-                          <span className="block text-xs text-accent-lime">CAP!</span>
+                          <span className="block text-xs text-accent-gold">CAP!</span>
                         )}
                       </div>
                     </div>
@@ -172,9 +177,9 @@ export function Examples() {
                           h-full rounded-full
                           ${
                             example.highlight
-                              ? 'bg-accent-lime'
-                              : example.planId === 'pro'
                               ? 'bg-accent-gold'
+                              : example.planId === 'pro'
+                              ? 'bg-accent-honey'
                               : 'bg-white'
                           }
                         `}
@@ -192,7 +197,7 @@ export function Examples() {
                         key={i}
                         className="flex items-start gap-2 text-sm text-text-secondary"
                       >
-                        <span className="text-accent-lime">✓</span>
+                        <Check className="w-4 h-4 text-accent-gold flex-shrink-0 mt-0.5" />
                         {benefit}
                       </li>
                     ))}

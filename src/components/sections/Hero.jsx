@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, ArrowRight } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Badge } from '../ui/Badge';
 import { Container } from '../ui/Container';
@@ -16,7 +16,7 @@ export function Hero() {
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.1,
+        delay: i * 0.12,
         duration: 0.8,
         ease: [0.16, 1, 0.3, 1],
       },
@@ -28,44 +28,43 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20"
     >
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-hero" />
+      {/* Pure black background */}
+      <div className="absolute inset-0 bg-black" />
 
-      {/* Gradient mesh overlay */}
+      {/* Subtle golden gradient mesh */}
       <div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-40"
         style={{
           backgroundImage: `
-            radial-gradient(ellipse at 20% 30%, rgba(204, 255, 0, 0.15) 0%, transparent 50%),
-            radial-gradient(ellipse at 80% 70%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-            radial-gradient(ellipse at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 50%)
+            radial-gradient(ellipse at 30% 20%, rgba(212, 160, 18, 0.12) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 80%, rgba(212, 160, 18, 0.08) 0%, transparent 50%)
           `,
         }}
       />
 
-      {/* Floating shapes */}
+      {/* Floating shapes - gold theme */}
       <FloatingShape
-        className="top-[10%] left-[5%]"
-        color="lime"
-        size={300}
-        blur={100}
+        className="top-[15%] left-[10%]"
+        color="gold"
+        size={350}
+        blur={120}
         delay={0}
       />
       <FloatingShape
-        className="bottom-[20%] right-[10%]"
-        color="blue"
-        size={250}
-        blur={90}
-        delay={2}
+        className="bottom-[25%] right-[5%]"
+        color="gold-light"
+        size={280}
+        blur={100}
+        delay={3}
       />
       <FloatingShape
-        className="top-[60%] left-[60%]"
-        color="purple"
-        size={200}
-        blur={80}
-        delay={4}
+        className="top-[55%] left-[65%]"
+        color="honey"
+        size={220}
+        blur={90}
+        delay={5}
       />
 
       {/* Content */}
@@ -76,13 +75,13 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <Badge variant="outline" className="mb-8">
+          <Badge variant="gold-outline" className="mb-8">
             Revenue Share Model
           </Badge>
         </motion.div>
 
         {/* Main headline with word animation */}
-        <h1 className="text-fluid-5xl md:text-fluid-6xl font-bold mb-6 tracking-tight">
+        <h1 className="text-fluid-5xl md:text-fluid-6xl font-bold mb-8 tracking-tight">
           {words.map((word, i) => (
             <motion.span
               key={word}
@@ -90,8 +89,8 @@ export function Hero() {
               initial="hidden"
               animate="visible"
               variants={textVariants}
-              className={`inline-block mr-4 ${
-                word === 'Vendi' ? 'text-accent-lime text-shadow-glow' : ''
+              className={`inline-block mr-3 md:mr-5 ${
+                word === 'Vendi' ? 'text-accent-gold text-shadow-gold' : 'text-white'
               }`}
             >
               {word}
@@ -103,18 +102,18 @@ export function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="text-fluid-lg md:text-fluid-xl text-text-secondary max-w-2xl mx-auto mb-12 text-balance"
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="text-fluid-lg md:text-fluid-xl text-text-secondary max-w-2xl mx-auto mb-12 text-balance leading-relaxed"
         >
-          Store WooCommerce professionali con pricing che si adatta al tuo business.
-          Tu investi nel setup, io investo nel tuo successo.
+          Store e-commerce professionali con un modello di pricing che si adatta
+          al tuo business. Tu investi nel setup, noi investiamo nel tuo successo.
         </motion.p>
 
         {/* CTAs */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"
         >
           <Button
@@ -122,8 +121,10 @@ export function Hero() {
             size="large"
             magnetic
             onClick={() => scrollToSection('final-cta')}
+            className="group"
           >
-            Prenota Una Call Gratuita
+            <span>Prenota Una Call Gratuita</span>
+            <ArrowRight className="w-5 h-5 ml-2 inline-block group-hover:translate-x-1 transition-transform" />
           </Button>
           <Button
             variant="secondary"
@@ -138,15 +139,15 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-          className="flex flex-wrap justify-center gap-4 md:gap-8"
+          transition={{ duration: 0.8, delay: 1.1 }}
+          className="flex flex-wrap justify-center gap-6 md:gap-10"
         >
-          {['7-14 giorni', 'SEO Incluso', 'Zero Sorprese'].map((badge, i) => (
+          {['Consegna in 7-14 giorni', 'SEO Ottimizzato', 'Supporto Dedicato'].map((badge) => (
             <div
               key={badge}
               className="flex items-center gap-2 text-text-secondary text-sm"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-lime" />
+              <span className="w-1.5 h-1.5 rounded-full bg-accent-gold" />
               {badge}
             </div>
           ))}
@@ -158,16 +159,16 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
+        transition={{ delay: 1.3, duration: 0.6 }}
       >
         <motion.button
           onClick={() => scrollToSection('problem')}
-          className="text-text-secondary hover:text-white transition-colors"
+          className="text-text-muted hover:text-accent-gold transition-colors"
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           aria-label="Scorri verso il basso"
         >
-          <ChevronDown className="w-8 h-8" />
+          <ChevronDown className="w-7 h-7" />
         </motion.button>
       </motion.div>
     </section>

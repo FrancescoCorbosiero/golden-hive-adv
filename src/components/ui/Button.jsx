@@ -34,13 +34,13 @@ export function Button({
   };
 
   const variants = {
-    primary: 'bg-accent-lime text-black font-semibold hover:bg-accent-lime-hover hover:shadow-[0_0_40px_rgba(204,255,0,0.3)]',
-    secondary: 'bg-transparent text-white border border-white/20 hover:bg-white/5 hover:border-white/40',
-    ghost: 'bg-transparent text-white hover:bg-white/5',
+    primary: 'bg-accent-gold text-black font-semibold hover:bg-accent-gold-light hover:shadow-[0_0_40px_rgba(212,160,18,0.4)]',
+    secondary: 'bg-transparent text-white border border-accent-gold/30 hover:bg-accent-gold/10 hover:border-accent-gold/50',
+    ghost: 'bg-transparent text-text-secondary hover:text-white hover:bg-white/5',
   };
 
   const sizes = {
-    small: 'px-4 py-2 text-sm',
+    small: 'px-5 py-2.5 text-sm',
     default: 'px-6 py-3 text-base',
     large: 'px-8 py-4 text-lg',
   };
@@ -50,7 +50,7 @@ export function Button({
       ref={ref}
       className={clsx(
         'relative overflow-hidden rounded-full font-medium transition-all duration-200',
-        'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-lime focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary',
+        'focus:outline-none focus-visible:ring-2 focus-visible:ring-accent-gold focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary',
         'active:scale-95',
         variants[variant],
         sizes[size],
@@ -60,8 +60,8 @@ export function Button({
       transition={{ type: 'spring', stiffness: 150, damping: 15 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      whileHover={{ scale: magnetic ? 1 : 1.05 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: magnetic ? 1 : 1.03 }}
+      whileTap={{ scale: 0.97 }}
       {...props}
     >
       {children}

@@ -31,10 +31,10 @@ export function Slider({
           -webkit-appearance: none;
           background: linear-gradient(
             to right,
-            #CCFF00 0%,
-            #CCFF00 var(--slider-progress),
-            rgba(255, 255, 255, 0.1) var(--slider-progress),
-            rgba(255, 255, 255, 0.1) 100%
+            #D4A012 0%,
+            #D4A012 var(--slider-progress),
+            rgba(212, 160, 18, 0.15) var(--slider-progress),
+            rgba(212, 160, 18, 0.15) 100%
           );
           border-radius: 9999px;
         }
@@ -44,32 +44,32 @@ export function Slider({
           width: 24px;
           height: 24px;
           border-radius: 50%;
-          background: #CCFF00;
+          background: linear-gradient(135deg, #F5C518 0%, #D4A012 100%);
           cursor: pointer;
-          border: 4px solid #0a0a0a;
-          box-shadow: 0 0 20px rgba(204, 255, 0, 0.5);
+          border: 3px solid #000000;
+          box-shadow: 0 0 20px rgba(212, 160, 18, 0.5);
           transition: all 0.2s ease;
         }
 
         .slider-input::-webkit-slider-thumb:hover {
           transform: scale(1.1);
-          box-shadow: 0 0 30px rgba(204, 255, 0, 0.7);
+          box-shadow: 0 0 30px rgba(212, 160, 18, 0.7);
         }
 
         .slider-input::-moz-range-thumb {
           width: 24px;
           height: 24px;
           border-radius: 50%;
-          background: #CCFF00;
+          background: linear-gradient(135deg, #F5C518 0%, #D4A012 100%);
           cursor: pointer;
-          border: 4px solid #0a0a0a;
-          box-shadow: 0 0 20px rgba(204, 255, 0, 0.5);
+          border: 3px solid #000000;
+          box-shadow: 0 0 20px rgba(212, 160, 18, 0.5);
           transition: all 0.2s ease;
         }
 
         .slider-input::-moz-range-thumb:hover {
           transform: scale(1.1);
-          box-shadow: 0 0 30px rgba(204, 255, 0, 0.7);
+          box-shadow: 0 0 30px rgba(212, 160, 18, 0.7);
         }
 
         .slider-input::-moz-range-track {
@@ -81,7 +81,7 @@ export function Slider({
         }
 
         .slider-input:focus-visible::-webkit-slider-thumb {
-          box-shadow: 0 0 0 4px rgba(204, 255, 0, 0.3), 0 0 30px rgba(204, 255, 0, 0.7);
+          box-shadow: 0 0 0 4px rgba(212, 160, 18, 0.3), 0 0 30px rgba(212, 160, 18, 0.7);
         }
       `}</style>
     </div>

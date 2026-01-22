@@ -36,18 +36,18 @@ export function ParallaxLayer({
 
 export function FloatingShape({
   className,
-  color = 'lime',
+  color = 'gold',
   size = 200,
   blur = 80,
   delay = 0,
   ...props
 }) {
   const colors = {
-    lime: 'rgba(204, 255, 0, 0.15)',
-    blue: 'rgba(0, 212, 255, 0.15)',
-    coral: 'rgba(255, 107, 107, 0.15)',
-    gold: 'rgba(245, 166, 35, 0.15)',
-    purple: 'rgba(139, 92, 246, 0.15)',
+    gold: 'rgba(212, 160, 18, 0.12)',
+    'gold-light': 'rgba(245, 197, 24, 0.10)',
+    honey: 'rgba(255, 184, 0, 0.10)',
+    amber: 'rgba(255, 191, 0, 0.08)',
+    white: 'rgba(255, 255, 255, 0.03)',
   };
 
   return (
@@ -60,12 +60,12 @@ export function FloatingShape({
         filter: `blur(${blur}px)`,
       }}
       animate={{
-        y: [0, -30, 0],
-        x: [0, 15, 0],
-        scale: [1, 1.1, 1],
+        y: [0, -25, 0],
+        x: [0, 12, 0],
+        scale: [1, 1.08, 1],
       }}
       transition={{
-        duration: 8,
+        duration: 10,
         delay,
         repeat: Infinity,
         ease: 'easeInOut',

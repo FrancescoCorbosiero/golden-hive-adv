@@ -1,45 +1,55 @@
 import { Container } from '../ui/Container';
 import { Accordion } from '../ui/Accordion';
 import { ScrollReveal } from '../animations/ScrollReveal';
+import {
+  BarChart3,
+  Calendar,
+  LineChart,
+  AlertTriangle,
+  RefreshCw,
+  DoorOpen,
+  Wrench,
+  CreditCard,
+} from 'lucide-react';
 
 const faqs = [
   {
-    icon: '📊',
+    icon: BarChart3,
     question: 'Come viene calcolato il fatturato?',
     answer: 'Il fatturato è calcolato sulle vendite lorde del tuo store (prima dei costi). I resi vengono esclusi dal calcolo. Riceverai un report dettagliato ogni mese con il breakdown completo.',
   },
   {
-    icon: '📅',
+    icon: Calendar,
     question: 'Quando si paga?',
     answer: 'La fatturazione è mensile. Ricevi la fattura entro il primo giorno del mese successivo, con pagamento entro il 5. Il setup viene pagato 50% all\'accordo e 50% al lancio.',
   },
   {
-    icon: '📈',
+    icon: LineChart,
     question: 'Come monitoro i costi?',
     answer: 'Avrai accesso a una dashboard automatica che mostra vendite, fee calcolate e storico in tempo reale. Totale trasparenza, sempre.',
   },
   {
-    icon: '⚠️',
+    icon: AlertTriangle,
     question: 'E se non vendo nulla?',
     answer: 'Si paga comunque il minimo garantito del tuo piano. Questo copre hosting, manutenzione, backup e supporto tecnico. È il costo base per mantenere il tuo store operativo.',
   },
   {
-    icon: '🔄',
+    icon: RefreshCw,
     question: 'Posso cambiare piano?',
     answer: 'Sì! Puoi fare upgrade o downgrade con 30 giorni di preavviso. L\'upgrade è immediato, il downgrade si attiva dal mese successivo al preavviso.',
   },
   {
-    icon: '🚪',
+    icon: DoorOpen,
     question: 'E se voglio cancellare?',
     answer: 'Richiediamo 60 giorni di preavviso. Il sito rimane tuo: puoi scaricarlo o trasferirlo. Ti aiutiamo con la migrazione se necessario.',
   },
   {
-    icon: '🛠️',
+    icon: Wrench,
     question: 'Cosa succede se ho un problema tecnico?',
     answer: 'Il supporto è incluso in tutti i piani. Per problemi critici interveniamo entro poche ore. Per richieste non urgenti, rispondiamo entro 24-48h.',
   },
   {
-    icon: '💳',
+    icon: CreditCard,
     question: 'Quali metodi di pagamento accettate?',
     answer: 'Accettiamo bonifico bancario e carte di credito. Per il setup è possibile concordare piani di pagamento personalizzati.',
   },
@@ -78,7 +88,7 @@ export function FAQ() {
             Hai altre domande?{' '}
             <a
               href="#final-cta"
-              className="text-accent-lime hover:underline font-medium"
+              className="text-accent-gold hover:underline font-medium"
               onClick={(e) => {
                 e.preventDefault();
                 document.getElementById('final-cta')?.scrollIntoView({ behavior: 'smooth' });

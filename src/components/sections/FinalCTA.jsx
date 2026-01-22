@@ -15,7 +15,7 @@ export function FinalCTA() {
       <div
         className="absolute inset-0"
         style={{
-          background: 'linear-gradient(135deg, #0a0a0a 0%, #0f1f0a 50%, #0a0a0a 100%)',
+          background: 'linear-gradient(135deg, #0a0a0a 0%, #1a150a 50%, #0a0a0a 100%)',
         }}
       />
 
@@ -28,8 +28,8 @@ export function FinalCTA() {
         transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
         style={{
           backgroundImage: `
-            radial-gradient(ellipse at 30% 30%, rgba(204, 255, 0, 0.15) 0%, transparent 50%),
-            radial-gradient(ellipse at 70% 70%, rgba(0, 212, 255, 0.1) 0%, transparent 50%)
+            radial-gradient(ellipse at 30% 30%, rgba(212, 160, 18, 0.15) 0%, transparent 50%),
+            radial-gradient(ellipse at 70% 70%, rgba(245, 200, 80, 0.1) 0%, transparent 50%)
           `,
           backgroundSize: '200% 200%',
         }}
@@ -38,14 +38,14 @@ export function FinalCTA() {
       {/* Floating shapes */}
       <FloatingShape
         className="top-[10%] left-[10%]"
-        color="lime"
+        color="gold"
         size={250}
         blur={100}
         delay={0}
       />
       <FloatingShape
         className="bottom-[20%] right-[15%]"
-        color="blue"
+        color="honey"
         size={200}
         blur={80}
         delay={2}
@@ -57,11 +57,11 @@ export function FinalCTA() {
           <ScrollReveal>
             <motion.h2
               className="text-fluid-4xl md:text-fluid-5xl font-bold mb-6"
-              animate={{ textShadow: ['0 0 20px rgba(204, 255, 0, 0.3)', '0 0 40px rgba(204, 255, 0, 0.5)', '0 0 20px rgba(204, 255, 0, 0.3)'] }}
+              animate={{ textShadow: ['0 0 20px rgba(212, 160, 18, 0.3)', '0 0 40px rgba(212, 160, 18, 0.5)', '0 0 20px rgba(212, 160, 18, 0.3)'] }}
               transition={{ duration: 3, repeat: Infinity }}
             >
               Pronto a{' '}
-              <span className="text-accent-lime">Crescere Insieme</span>?
+              <span className="text-accent-gold">Crescere Insieme</span>?
             </motion.h2>
           </ScrollReveal>
 
@@ -96,11 +96,11 @@ export function FinalCTA() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-10">
               <p className="text-text-secondary">O scrivici direttamente:</p>
               <a
-                href="mailto:info@goldenhive.it"
-                className="flex items-center gap-2 text-white hover:text-accent-lime transition-colors group"
+                href="mailto:info@goldenhivecommerce.it"
+                className="flex items-center gap-2 text-white hover:text-accent-gold transition-colors group"
               >
                 <Mail className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                <span className="font-medium">info@goldenhive.it</span>
+                <span className="font-medium">info@goldenhivecommerce.it</span>
               </a>
             </div>
           </ScrollReveal>
@@ -116,7 +116,7 @@ export function FinalCTA() {
           {/* Trust footer */}
           <ScrollReveal delay={0.5} className="mt-12 pt-8 border-t border-white/10">
             <p className="text-text-muted text-sm">
-              Prezzi IVA esclusa • Validi da Gennaio 2025
+              Prezzi IVA esclusa | Validi da Gennaio 2025
             </p>
           </ScrollReveal>
         </div>

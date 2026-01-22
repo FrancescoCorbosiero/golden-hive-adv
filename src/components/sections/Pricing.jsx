@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { Sprout, Rocket, Gem } from 'lucide-react';
 import { Container } from '../ui/Container';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
@@ -9,6 +10,12 @@ import { PLANS } from '../../utils/calculatePrice';
 import { formatCurrency } from '../../utils/formatCurrency';
 
 const planOrder = ['starter', 'growth', 'pro'];
+
+const planIcons = {
+  starter: Sprout,
+  growth: Rocket,
+  pro: Gem,
+};
 
 export function Pricing() {
   const scrollToContact = () => {
@@ -28,7 +35,7 @@ export function Pricing() {
         className="absolute inset-0"
         style={{
           backgroundImage: `
-            radial-gradient(ellipse at 50% 60%, rgba(204, 255, 0, 0.08) 0%, transparent 50%)
+            radial-gradient(ellipse at 50% 60%, rgba(212, 160, 18, 0.08) 0%, transparent 50%)
           `,
         }}
       />
@@ -36,7 +43,7 @@ export function Pricing() {
       <Container className="relative z-10">
         {/* Section header */}
         <ScrollReveal className="text-center mb-16">
-          <Badge variant="lime" className="mb-6">
+          <Badge variant="gold" className="mb-6">
             Pricing Trasparente
           </Badge>
           <h2 className="text-fluid-3xl md:text-fluid-4xl font-bold mb-6">
@@ -52,6 +59,7 @@ export function Pricing() {
           {planOrder.map((planId, index) => {
             const plan = PLANS[planId];
             const isFeatured = plan.featured;
+            const IconComponent = planIcons[planId];
 
             return (
               <StaggerItem key={planId} className="flex">
@@ -71,7 +79,7 @@ export function Pricing() {
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.5 }}
                     >
-                      <Badge variant="lime">{plan.badge}</Badge>
+                      <Badge variant="gold">{plan.badge}</Badge>
                     </motion.div>
                   )}
 
@@ -80,17 +88,19 @@ export function Pricing() {
                       flex flex-col h-full p-6 md:p-8
                       ${
                         isFeatured
-                          ? 'border-2 border-accent-lime/50 bg-gradient-to-br from-white/[0.08] to-white/[0.02]'
+                          ? 'border-2 border-accent-gold/50 bg-gradient-to-br from-white/[0.08] to-white/[0.02]'
                           : ''
                       }
                     `}
                     tilt={isFeatured}
                     glow={isFeatured}
-                    glowColor="lime"
+                    glowColor="gold"
                   >
                     {/* Plan header */}
                     <div className="text-center mb-6">
-                      <span className="text-4xl mb-3 block">{plan.emoji}</span>
+                      <div className="w-14 h-14 rounded-xl bg-accent-gold/10 flex items-center justify-center mx-auto mb-3">
+                        <IconComponent className="w-7 h-7 text-accent-gold" />
+                      </div>
                       <h3 className="text-2xl font-bold text-white mb-2">
                         {plan.name}
                       </h3>
@@ -124,9 +134,9 @@ export function Pricing() {
                           inline-block px-6 py-3 rounded-full
                           ${
                             isFeatured
-                              ? 'bg-accent-lime/20 text-accent-lime'
-                              : plan.accent === 'gold'
                               ? 'bg-accent-gold/20 text-accent-gold'
+                              : plan.accent === 'gold'
+                              ? 'bg-accent-honey/20 text-accent-honey'
                               : 'bg-white/10 text-white'
                           }
                         `}
