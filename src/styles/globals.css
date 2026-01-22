@@ -1,0 +1,183 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Base */
+  --color-bg-primary: #0a0a0a;
+  --color-bg-secondary: #111111;
+  --color-bg-tertiary: #1a1a1a;
+  --color-bg-elevated: #222222;
+
+  /* Text */
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #a1a1a1;
+  --color-text-muted: #666666;
+
+  /* Accent - Primary */
+  --color-accent-lime: #CCFF00;
+  --color-accent-lime-hover: #b8e600;
+  --color-accent-lime-glow: rgba(204, 255, 0, 0.3);
+
+  /* Accent - Secondary */
+  --color-accent-coral: #FF6B6B;
+  --color-accent-blue: #00D4FF;
+  --color-accent-gold: #F5A623;
+  --color-accent-purple: #8B5CF6;
+
+  /* Timing */
+  --duration-fast: 200ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.22, 1.2, 0.36, 1);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', 'Arial Black', sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: var(--color-accent-lime);
+    color: #000000;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply relative overflow-hidden bg-white/[0.03] backdrop-blur-xl border border-white/[0.08] rounded-2xl transition-all duration-300;
+  }
+
+  .glass-card:hover {
+    @apply bg-white/[0.05] border-white/[0.12];
+  }
+
+  .btn-primary {
+    @apply relative overflow-hidden bg-accent-lime text-black font-semibold text-lg px-8 py-4 rounded-full transition-all duration-200;
+  }
+
+  .btn-primary:hover {
+    @apply bg-accent-lime-hover scale-105;
+    box-shadow: 0 0 40px rgba(204, 255, 0, 0.3);
+  }
+
+  .btn-primary:active {
+    @apply scale-95;
+  }
+
+  .btn-secondary {
+    @apply relative bg-transparent text-white font-medium px-6 py-3 rounded-full border border-white/20 transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-white/5 border-white/40;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40 px-4 md:px-8 lg:px-16;
+  }
+
+  .container-narrow {
+    @apply max-w-[900px] mx-auto;
+  }
+
+  .container-wide {
+    @apply max-w-[1400px] mx-auto;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-lime to-accent-blue;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer utilities {
+  .text-shadow-glow {
+    text-shadow: 0 0 40px rgba(204, 255, 0, 0.5);
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+}
+
+/* Noise grain overlay */
+.noise-overlay::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  z-index: 9999;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-bg-elevated);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-muted);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-accent-lime);
+  outline-offset: 2px;
+}
