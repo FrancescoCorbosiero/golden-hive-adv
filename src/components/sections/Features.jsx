@@ -1,0 +1,166 @@
+import { motion } from 'framer-motion';
+import { Container } from '../ui/Container';
+import { Card } from '../ui/Card';
+import { ScrollReveal, StaggerContainer, StaggerItem } from '../animations/ScrollReveal';
+
+const features = [
+  {
+    icon: '🛒',
+    title: 'Store WooCommerce',
+    description: 'Professionale e personalizzato',
+    size: 'large',
+  },
+  {
+    icon: '🎨',
+    title: 'Tema Premium',
+    description: 'Ottimizzato per conversioni',
+    size: 'medium',
+  },
+  {
+    icon: '🔒',
+    title: 'SSL e Sicurezza',
+    description: 'Certificato incluso',
+    size: 'small',
+  },
+  {
+    icon: '☁️',
+    title: 'Hosting Gestito',
+    description: 'Server veloci e affidabili',
+    size: 'medium',
+  },
+  {
+    icon: '💾',
+    title: 'Backup Giornalieri',
+    description: 'I tuoi dati sempre al sicuro',
+    size: 'small',
+  },
+  {
+    icon: '🔄',
+    title: 'Aggiornamenti Automatici',
+    description: 'WordPress e plugin sempre aggiornati',
+    size: 'medium',
+  },
+  {
+    icon: '📦',
+    title: 'Sync Stock',
+    description: 'Collegato al tuo feed prodotti',
+    size: 'large',
+  },
+  {
+    icon: '🔍',
+    title: 'SEO Base',
+    description: 'Configurato per farti trovare',
+    size: 'medium',
+  },
+  {
+    icon: '📱',
+    title: 'Mobile Responsive',
+    description: 'Perfetto su ogni dispositivo',
+    size: 'small',
+  },
+  {
+    icon: '💳',
+    title: 'Pagamenti',
+    description: 'Stripe e PayPal integrati',
+    size: 'medium',
+  },
+  {
+    icon: '🎧',
+    title: 'Supporto Post-Lancio',
+    description: 'Non ti lasciamo mai solo',
+    size: 'large',
+  },
+];
+
+export function Features() {
+  return (
+    <section
+      id="features"
+      className="relative section-padding overflow-hidden"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 bg-bg-primary" />
+
+      {/* Subtle grid pattern */}
+      <div
+        className="absolute inset-0 opacity-[0.02]"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '60px 60px',
+        }}
+      />
+
+      <Container className="relative z-10">
+        {/* Section header */}
+        <ScrollReveal className="text-center mb-16">
+          <h2 className="text-fluid-3xl md:text-fluid-4xl font-bold mb-6">
+            Cosa È <span className="text-accent-blue">Incluso</span> In Tutti I Piani
+          </h2>
+          <p className="text-text-secondary text-fluid-lg max-w-2xl mx-auto">
+            Ogni piano include tutto ciò di cui hai bisogno per lanciare e gestire il tuo store
+          </p>
+        </ScrollReveal>
+
+        {/* Bento grid */}
+        <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+          {features.map((feature, index) => {
+            const sizeClasses = {
+              small: '',
+              medium: 'md:col-span-1',
+              large: 'md:col-span-2 lg:col-span-1',
+            };
+
+            return (
+              <StaggerItem key={feature.title}>
+                <motion.div
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  transition={{ duration: 0.2 }}
+                  className={sizeClasses[feature.size]}
+                >
+                  <Card className="p-5 md:p-6 h-full group">
+                    {/* Icon */}
+                    <motion.span
+                      className="text-3xl md:text-4xl block mb-3"
+                      whileHover={{ scale: 1.2, rotate: [0, -5, 5, 0] }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {feature.icon}
+                    </motion.span>
+
+                    {/* Title */}
+                    <h3 className="font-semibold text-white mb-1 group-hover:text-accent-lime transition-colors">
+                      {feature.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-text-secondary text-sm">
+                      {feature.description}
+                    </p>
+
+                    {/* Hover gradient border effect */}
+                    <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent-lime/20 via-transparent to-accent-blue/20 blur-sm" />
+                    </div>
+                  </Card>
+                </motion.div>
+              </StaggerItem>
+            );
+          })}
+        </StaggerContainer>
+
+        {/* Bottom note */}
+        <ScrollReveal delay={0.4} className="text-center mt-12">
+          <p className="text-text-muted">
+            E molto altro ancora...{' '}
+            <span className="text-white">Prenota una call</span> per scoprire tutti i dettagli.
+          </p>
+        </ScrollReveal>
+      </Container>
+    </section>
+  );
+}
+
+export default Features;
